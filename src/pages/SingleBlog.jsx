@@ -20,7 +20,8 @@ const SingleBlog = () => {
         <>
           <img class="img-fluid" src={data.image} alt={data.title} width={300}/>
           <h1>Title: {data.title}</h1>
-          <h2>Content: {data.content}</h2>
+          <h1>Topic: {data.topic}</h1>
+          <p>Content: {data.content}</p>
         </>
     );
 };
