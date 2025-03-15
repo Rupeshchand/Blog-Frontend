@@ -1,6 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 const Header = () => {
+  const { dispatch, user } = useContext(AuthContext);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -27,23 +32,44 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <Link to="/login">
-                <button class="btn btn-outline-dark" type="submit">
-                  Login
-                </button>
-              </Link>
-              <Link to="/register">
-                <button class="btn btn-outline-success ms-3" type="submit">
-                  Register
-                </button>
-              </Link>
-            </form>
+            {user ? (
+              <>
+                <form class="d-flex" role="search">
+                  <Link>
+                    <button class="btn btn-outline-dark" type="submit">
+                      {user.name}
+                    </button>
+                  </Link>
+                  <Link>
+                    <button
+                      onClick={handleLogout}
+                      class="btn btn-danger ms-3"
+                      type="submit"
+                    >
+                      Logout
+                    </button>
+                  </Link>
+                </form>
+              </>
+            ) : (
+              <form class="d-flex" role="search">
+                <Link to="/login">
+                  <button class="btn btn-outline-dark" type="submit">
+                    Login
+                  </button>
+                </Link>
+                <Link to="/register">
+                  <button class="btn btn-outline-success ms-3" type="submit">
+                    Register
+                  </button>
+                </Link>
+              </form>
+            )}
           </div>
         </div>
       </nav>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

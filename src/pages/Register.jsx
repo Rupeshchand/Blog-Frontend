@@ -24,7 +24,8 @@ const Register = () => {
                 body: JSON.stringify(formData)
             })
             const response = await res.json()
-            useNavigate("/login")
+            navigate("/login")
+            console.log(response)
         } catch (error) {
             console.log(error)
         }
