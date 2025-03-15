@@ -6,7 +6,6 @@ const Home = () => {
   const [data, setData] = useState([]);
 
   const getBlogData = async () => {
-    // http://localhost:8080/api/v1/blog/getblogs
     const response = await fetch(`${BASE_URL}/blog/getblogs`);
     const { data } = await response.json();
     setData(data);
@@ -27,7 +26,7 @@ const Home = () => {
                     <img src={blogData.image} class="card-img-top" alt="..." />
                     <div class="card-body">
                       <h5 class="card-title">{blogData.title}</h5>
-                      <p class="card-text">{blogData.content}</p>
+                      <p class="card-text">{blogData.content && blogData.content.length > 30 ? blogData.content.slice(0,30)+"..." : blogData.content}</p>
                       <Link to={`/blog/${blogData._id}`}>
                         <button class="btn btn-primary">Read full blog</button>
                       </Link>
