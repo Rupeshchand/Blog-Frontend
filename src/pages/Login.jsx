@@ -24,6 +24,7 @@ const Login = () => {
         credentials: "include", //we are telling that we will pass only secure values
       });
       const response = await res.json();
+      console.log(response)
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: response.data,
@@ -70,7 +71,7 @@ const Login = () => {
                 id="password"
               />
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" onClick={handleSubmit} class="btn btn-primary">
               Submit
             </button>
           </form>

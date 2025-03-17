@@ -19,7 +19,7 @@ const EditBlog = () => {
     try {
         const res = await fetch(`${BASE_URL}/blog/editblog/${id}`,{
             method:"PUT",
-            headers:{"Content-Type" : "application/json","Authorization" : `Bearer ${localStorage.getItem("token")}`},
+            headers:{"Content-Type" : "application/json",Authorization : `Bearer ${localStorage.getItem("token")}`},
             body: JSON.stringify(editBlog)
         })
         const response =  await res.json()

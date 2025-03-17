@@ -6,6 +6,7 @@ import Register from '../pages/Register'
 import Login from '../pages/Login'
 import EditBlog from '../pages/EditBlog'
 import CreateBlog from '../pages/CreateBlog'
+import DeleteBlog from '../pages/DeleteBlog'
 
 const Routing = () => {
   return (
@@ -16,6 +17,7 @@ const Routing = () => {
         <Route path='/login' element={<Login/>} />
         <Route path='/createblog' element={<CreateBlog/>} />
         <Route path='/editblog/:id' element={<EditBlog/>} />
+        <Route path='/deleteblog/:id' element={<DeleteBlog/>}/>
     </Routes>
   )
 }
