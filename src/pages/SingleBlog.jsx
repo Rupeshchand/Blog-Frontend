@@ -18,7 +18,7 @@ const SingleBlog = () => {
     getData();
   }, []);
   console.log(data);
-  const handleDelete = async (e) => {
+const handleDelete = async (e) => {
     e.preventDefault()
     try {
       const res = await fetch(`${BASE_URL}/blog/deleteblog/${id}`, {
@@ -47,12 +47,14 @@ const SingleBlog = () => {
           <h1>Title: {data.title}</h1>
           <h1>Topic: {data.topic}</h1>
           <p>Content: {data.content}</p>
-          <button className="btn btn-primary" type="submit">
-            Edit Blog
-          </button>
-          <button className="btn btn-danger" onClick={handleDelete} type="submit">
-            <FontAwesomeIcon icon={faTrash} />
-          </button>
+          <Link to={`/editblog/${id}`}>
+            <button className="btn btn-primary" type="submit">
+              Edit Blog
+            </button>
+          </Link>
+            <button className="btn btn-danger" onClick={handleDelete} type="submit">
+              <FontAwesomeIcon icon={faTrash}/>
+            </button>
         </>
       ) : (
         <>
