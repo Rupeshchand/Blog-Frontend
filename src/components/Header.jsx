@@ -11,7 +11,7 @@ const Header = () => {
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <Link class="navbar-brand" to="/">
-            Navbar
+            Blogger
           </Link>
           <button
             class="navbar-toggler"
