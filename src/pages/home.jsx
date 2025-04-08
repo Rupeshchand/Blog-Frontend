@@ -9,7 +9,7 @@ const Home = () => {
   const role = localStorage.getItem("role");
   const [data, setData] = useState([]);
   console.log(data)
-  const {id} = useParams()
+  const { id } = useParams()
   const getBlogData = async () => {
     const response = await fetch(`${BASE_URL}/blog/getblogs`);
     const { data } = await response.json();
@@ -63,15 +63,13 @@ const Home = () => {
                                 Read full blog
                               </button>
                             </Link>
-                            <Link to={`/deleteblog/${blogData._id}`}>
-                              <button
-                                className="btn btn-danger"
-                                onClick={handleDelete}
-                                type="submit"
-                              >
-                                <FontAwesomeIcon icon={faTrash} />
-                              </button>
-                            </Link>
+                            <button
+                              className="btn btn-danger"
+                              onClick={handleDelete}
+                              type="submit"
+                            >
+                              <FontAwesomeIcon icon={faTrash} />
+                            </button>
                           </div>
                         </div>
                       </div>
