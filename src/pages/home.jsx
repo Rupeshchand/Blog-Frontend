@@ -63,13 +63,13 @@ const Home = () => {
                                 Read full blog
                               </button>
                             </Link>
-                            <button
+                            {/* <button
                               className="btn btn-danger"
                               onClick={handleDelete}
                               type="submit"
                             >
                               <FontAwesomeIcon icon={faTrash} />
-                            </button>
+                            </button> */}
                           </div>
                         </div>
                       </div>
